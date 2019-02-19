@@ -17,7 +17,9 @@ public class ExchangeValue {
 	private long conversionMultiple;
 	private int port;
 
-	public ExchangeValue() {}
+	public ExchangeValue() {
+	}
+
 	public ExchangeValue(int id, String from, String to, long conversionMultiple) {
 		super();
 		this.id = id;
@@ -50,7 +52,7 @@ public class ExchangeValue {
 		this.to = to;
 	}
 
-	public long getCalculationValue() {
+	public long getConversionMultiple() {
 		return conversionMultiple;
 	}
 

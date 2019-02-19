@@ -12,15 +12,18 @@ import com.ysd.currencyexchangeservice.bean.ExchangeValue;
 public class CurrencyExchangeController {
 
 	@Autowired
-	private Environment environment; 
-	
+	private Environment environment;
+
 	@Autowired
 	CurrencyExchangeRepository repository;
 
 	@GetMapping("/exchange-value/from/{from}/to/{to}")
 	public ExchangeValue getExchangeValue(@PathVariable String from, @PathVariable String to) {
-System.out.println(environment.getProperty("local.server.port"));
-		return repository.findByFromAndTo(from, to);
+
+		ExchangeValue exchangeValue = repository.findByFromAndTo(from, to);
+		exchangeValue.setPort(Integer.parseInt(environment.getProperty("local.server.port")));
+		return exchangeValue;
+
 	}
 
 }
