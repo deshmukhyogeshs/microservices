@@ -10,16 +10,13 @@ import com.ysd.limitsservice.bean.LimitService;
 @RestController
 public class LimitServiceController {
 
-	@Value("${spring.application.name}")
-	private String appName;
-	
+		
 	@Autowired
 	private Configuration conf;
 
 	@GetMapping("/limits")
 	public LimitService getLimits() {
 
-		System.out.println(appName);
 		return new LimitService(conf.getMinimum(), conf.getMaximum());
 	}
 }
