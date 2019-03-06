@@ -29,23 +29,30 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+		<!--To fetch configuration from CloudConfigServer/ to declare as config 
+			client. You have to provide spring.cloud.config.uri = "URI of config server" -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-config-server</artifactId>
+			<!-- <artifactId>spring-cloud-config-server</artifactId> -->
+			<artifactId>spring-cloud-starter-config</artifactId>
 		</dependency>
+		<!-- To register with Netflix Eureka discovery server as a client -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
+		<!-- To assign unique id to each request for tracking and identification 
+			purpose -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-sleuth</artifactId>
 		</dependency>
+		<!-- enable distributed tracing using Zipkin server -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-sleuth-zipkin</artifactId>
 		</dependency>
-
+		<!-- Uses Rabbitmq using amqp protocal to trace service flow in zipkin -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-bus-amqp</artifactId>

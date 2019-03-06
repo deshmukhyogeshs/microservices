@@ -11,8 +11,8 @@ import com.netflix.eureka.registry.rule.AlwaysMatchInstanceStatusRule;
 import brave.sampler.Sampler;
 
 @SpringBootApplication
-@EnableFeignClients("com.ysd.currencyconversionservice")
-@EnableDiscoveryClient
+@EnableFeignClients("com.ysd.currencyconversionservice")//To enable Feign Client as Proxy (alternative to RestTemplate)
+@EnableDiscoveryClient // to register with Eureka discovery server
 public class CurrencyConversionServiceApplication {
 
 	public static void main(String[] args) {

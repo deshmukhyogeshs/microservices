@@ -29,31 +29,45 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+		<!-- for reading configuration from config server or declaring as config 
+			client -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-config</artifactId>
 		</dependency>
+		<!-- for adding unique id for each request to track entire flow -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-sleuth</artifactId>
 		</dependency>
+		<!-- for tracking flow of each request , its called distributed tracing 
+			server. It uses sleuth dependency to track -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-sleuth-zipkin</artifactId>
 		</dependency>
-
+		<!-- rabbit mq uses amqp protocol to communicate between services and zipkin 
+			server -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-bus-amqp</artifactId>
 		</dependency>
+		<!-- openFiegn is client used by services to communicate with other services, 
+			for that we have to use @EnableFeignClient("pathOfPKG") and provide @FeignClient("nameOfService","URI") 
+			Its alternative to RestTemplate -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-openfeign</artifactId>
 		</dependency>
+		<!-- Its a client side load balance, you have to provide serviceName.ribbin.listofServers=http://localhost:8000, 
+			http://localhost:8001 -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
 		</dependency>
+		<!-- Netflix Eureka is server used to register all services, through all 
+			services come to know about each others uri. Its used to register current 
+			service as client to Eureka server -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
